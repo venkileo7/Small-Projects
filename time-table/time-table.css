@@ -1,0 +1,67 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  height: 650px;
+  width: 1200px;
+  background-color: rgb(255, 237, 119);
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.7);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: underline 2px;
+}
+
+.hover-info {
+  text-align: right;
+  padding-right: 15px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+tr, th, td {
+  padding: 15px 10px;
+  border: 1px solid black;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.tdata:hover {
+  transform: scale(1.2);
+  background-color: white;
+  z-index: 10;
+}
+
+.tdata::after {
+  content: attr(data-hover);
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(67, 67, 67);
+  color: white;
+  border-radius: 5px;
+  padding: 2px 5px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.3s ease visibility 0.3s ease;
+}
+
+.tdata:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
